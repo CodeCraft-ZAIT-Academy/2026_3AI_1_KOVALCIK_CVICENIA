@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --ink: #2b241c;
+  --paper: #f6f1e6;
+  --accent: #7a3b2e;
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+button {
+  font-family: inherit;
+}

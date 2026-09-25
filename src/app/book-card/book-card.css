@@ -1,0 +1,46 @@
+.book-card {
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 1.25rem 0.25rem;
+  margin: 1.75rem 0;
+}
+
+.book-card h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.3rem;
+}
+
+.book-card p {
+  margin: 0.2rem 0;
+}
+
+.book-card p:first-of-type {
+  font-style: italic;
+}
+
+.book-card button {
+  background: none;
+  border: 1px solid var(--ink);
+  padding: 0.4rem 0.9rem;
+  margin: 0.75rem 0.5rem 0 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.book-card button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.book-card .favourite-btn.is-favourite {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.book-card small {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: italic;
+  opacity: 0.7;
+}

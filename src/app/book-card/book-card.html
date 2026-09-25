@@ -1,0 +1,30 @@
+<article class="book-card">
+  <h3>{{ book().title }}</h3>
+  <p>Autor: {{ book().author }}</p>
+  <p>Rok vydania: {{ book().year }}</p>
+  <p>Žáner: {{ book().genre }}</p>
+  @if (book().available) {
+  <p>Kniha je dostupná.</p>
+} @else {
+  <p>Kniha je momentálne vypožičaná.</p>
+}
+<button (click)="toggleDetails()">
+  Zobraziť / skryť detail
+</button>
+@if (showDetails) {
+  <div>
+    <p>Rok vydania: {{ book().year }}</p>
+    <p>Žáner: {{ book().genre }}</p>
+  </div>
+}
+<button [disabled]="!book().available">
+  Vypožičať
+</button>
+<button class="favourite-btn" [class.is-favourite]="isFavourite" (click)="toggleFavourite()">
+  {{ isFavourite ? '♥ V obľúbených' : '♡ Pridať do obľúbených' }}
+</button>
+
+@if (!book().available) {
+  <small>Kniha je momentálne vypožičaná.</small>
+}
+</article>
