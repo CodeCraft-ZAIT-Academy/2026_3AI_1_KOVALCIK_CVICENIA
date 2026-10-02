@@ -1,0 +1,34 @@
+<mat-divider></mat-divider>
+
+<div class="detail">
+  <p>
+    <mat-icon>calendar_today</mat-icon>
+    Rok vydania: {{ book().year }}
+  </p>
+
+  <p>
+    <mat-icon>menu_book</mat-icon>
+    Počet strán: {{ book().pages }}
+  </p>
+
+  <p class="rating">
+    <mat-icon>star_rate</mat-icon>
+    Hodnotenie:
+    @for (star of stars; track star) {
+      @if (star <= book().rating) {
+        <mat-icon class="star-filled">star</mat-icon>
+      } @else {
+        <mat-icon>star_border</mat-icon>
+      }
+    }
+  </p>
+
+  <p>
+    <mat-icon>tag</mat-icon>
+    Číslo v knižnici: {{ book().id }}
+  </p>
+
+  <mat-chip-set>
+    <mat-chip>{{ book().genre }}</mat-chip>
+  </mat-chip-set>
+</div>
