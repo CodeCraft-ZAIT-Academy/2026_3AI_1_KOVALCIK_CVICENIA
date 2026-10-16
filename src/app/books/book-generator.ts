@@ -1,9 +1,8 @@
 import { faker } from '@faker-js/faker';
 import { Book } from './book';
 
-faker.seed(42);
-
 export function generateBooks(count: number, firstId: number): Book[] {
+  faker.seed(42);
   const books: Book[] = [];
 
   for (let i = 0; i < count; i++) {

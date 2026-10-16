@@ -25,3 +25,32 @@ h2 {
   gap: 1rem;
   margin-top: 1rem;
 }
+
+mat-accordion {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+mat-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.search {
+  flex: 1;
+  min-width: 240px;
+}
+
+.empty {
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+}

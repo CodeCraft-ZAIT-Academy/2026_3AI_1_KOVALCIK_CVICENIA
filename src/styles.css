@@ -24,3 +24,8 @@ h1, h2, h3 {
 button {
   font-family: inherit;
 }
+
+.cdk-overlay-popover div.mat-mdc-select-panel,
+.cdk-overlay-container div.mat-mdc-select-panel {
+  background-color: #f4f6f8;
+}

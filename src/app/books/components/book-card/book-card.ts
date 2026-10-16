@@ -1,20 +1,27 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Book } from '../book';
+import { Book } from '../../book';
 import { BookDetail } from '../book-detail/book-detail';
+import { BookForm } from '../book-form/book-form';
 
 @Component({
-  imports: [MatCardModule, MatButtonModule, MatIconModule, BookDetail],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, BookDetail, BookForm],
   selector: 'app-book-card',
   styleUrl: './book-card.css',
   templateUrl: './book-card.html',
 })
 export class BookCard {
   book = input.required<Book>();
+  borrowed = output<void>();
+  returned = output<void>();
+  edited = output<Book>();
+  deleted = output<void>();
 
   showDetails: boolean = false;
+  editing: boolean = false;
+  confirmingDelete: boolean = false;
 
   toggleDetails(): void {
     this.showDetails = !this.showDetails;
@@ -25,11 +32,36 @@ export class BookCard {
   }
 
   borrow(): void {
-    this.book().available = false;
+    this.borrowed.emit();
   }
 
   giveBack(): void {
-    this.book().available = true;
+    this.returned.emit();
+  }
+
+  startEdit(): void {
+    this.editing = true;
+  }
+
+  saveEdit(book: Book): void {
+    this.edited.emit(book);
+    this.editing = false;
+  }
+
+  cancelEdit(): void {
+    this.editing = false;
+  }
+
+  askDelete(): void {
+    this.confirmingDelete = true;
+  }
+
+  cancelDelete(): void {
+    this.confirmingDelete = false;
+  }
+
+  confirmDelete(): void {
+    this.deleted.emit();
   }
 
   genreColor(): string {
