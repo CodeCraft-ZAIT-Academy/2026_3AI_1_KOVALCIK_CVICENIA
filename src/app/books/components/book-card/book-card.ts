@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Book } from '../../book';
 import { BookDetail } from '../book-detail/book-detail';
 import { BookForm } from '../book-form/book-form';
+import { getGenreColor } from '../../genre-colors';
 
 @Component({
   imports: [MatCardModule, MatButtonModule, MatIconModule, BookDetail, BookForm],
@@ -18,6 +19,7 @@ export class BookCard {
   returned = output<void>();
   edited = output<Book>();
   deleted = output<void>();
+  favoriteToggled = output<void>();
 
   showDetails: boolean = false;
   editing: boolean = false;
@@ -28,7 +30,7 @@ export class BookCard {
   }
 
   toggleFavorite(): void {
-    this.book().favorite = !this.book().favorite;
+    this.favoriteToggled.emit();
   }
 
   borrow(): void {
@@ -65,27 +67,6 @@ export class BookCard {
   }
 
   genreColor(): string {
-    switch (this.book().genre) {
-      case 'Fantasy':
-        return '#7c3aed';
-      case 'Science Fiction':
-        return '#0891b2';
-      case 'Mystery':
-        return '#ca8a04';
-      case 'Romance':
-        return '#db2777';
-      case 'Horror':
-        return '#b91c1c';
-      case 'Classic':
-        return '#92400e';
-      case 'Dystopia':
-        return '#334155';
-      case 'Fiction':
-        return '#0d9488';
-      case "Children's Literature":
-        return '#16a34a';
-      default:
-        return '#94a3b8';
-    }
+    return getGenreColor(this.book().genre);
   }
 }

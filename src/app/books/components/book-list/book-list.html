@@ -67,6 +67,7 @@
         (returned)="giveBack(book)"
         (edited)="updateBook($event)"
         (deleted)="deleteBook(book)"
+        (favoriteToggled)="toggleFavorite(book)"
       ></app-book-card>
     }
   } @empty {
